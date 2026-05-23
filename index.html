@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="西藏正宏财务工具箱 - 进项核查、开票建议、合同生成">
+    <meta name="theme-color" content="#1e40af">
+    <title>财务工具箱</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧰</text></svg>">
+    <style>
+        :root{--primary:#1e40af;--primary-dark:#1e3a8a;--primary-light:#3b82f6;--accent:#059669;--bg:#f0f4f8;--card:#fff;--shadow:0 8px 30px rgba(30,64,175,.1);--shadow-hover:0 12px 40px rgba(30,64,175,.2);--br:16px;--text:#1e293b;--muted:#64748b;--border:#e2e8f0}
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'PingFang SC','Microsoft YaHei',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+
+        /* 顶部背景 */
+        .hero{background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 40%,#059669 100%);padding:60px 20px 80px;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.08) 0%,transparent 50%);animation:pulse 8s ease-in-out infinite}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        .hero h1{color:#fff;font-size:36px;font-weight:800;letter-spacing:2px;position:relative;z-index:1}
+        .hero p{color:rgba(255,255,255,.85);font-size:16px;margin-top:12px;position:relative;z-index:1}
+        .hero .badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;margin-top:16px;position:relative;z-index:1;border:1px solid rgba(255,255,255,.2)}
+
+        /* 主内容 */
+        .main{flex:1;max-width:1100px;margin:-50px auto 0;padding:0 20px;position:relative;z-index:2;width:100%}
+        .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        @media(max-width:768px){.cards{grid-template-columns:1fr;gap:16px}.hero h1{font-size:26px}}
+
+        .card{background:var(--card);border-radius:var(--br);padding:32px 28px;box-shadow:var(--shadow);transition:all .3s cubic-bezier(.4,0,.2,1);cursor:pointer;border:2px solid transparent;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transition:height .3s}
+        .card:nth-child(1)::before{background:linear-gradient(90deg,#dc2626,#f97316)}
+        .card:nth-child(2)::before{background:linear-gradient(90deg,#1e40af,#3b82f6)}
+        .card:nth-child(3)::before{background:linear-gradient(90deg,#059669,#10b981)}
+        .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--primary-light)}
+        .card:hover::before{height:6px}
+        .card:active{transform:translateY(-2px)}
+
+        .card-icon{font-size:48px;margin-bottom:16px}
+        .card-title{font-size:20px;font-weight:700;color:var(--text);margin-bottom:8px}
+        .card-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;min-height:66px}
+        .card-features{list-style:none;margin-bottom:20px}
+        .card-features li{font-size:13px;color:var(--muted);padding:4px 0;padding-left:20px;position:relative}
+        .card-features li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700}
+        .card-link{display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:14px;text-decoration:none;transition:.2s}
+        .card-link:hover{gap:10px}
+        .card-link .arrow{transition:transform .2s}.card:hover .card-link .arrow{transform:translateX(4px)}
+
+        /* 底部 */
+        footer{text-align:center;padding:40px 20px 24px;color:var(--muted);font-size:12px}
+        footer a{color:var(--primary);text-decoration:none}
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>🧰 财务工具箱</h1>
+    <p>进项核查 · 开票建议 · 合同生成 —— 一站式财务管理工具</p>
+    <span class="badge">v1.0 · 专为五金贸易行业打造</span>
+</div>
+
+<div class="main">
+    <div class="cards">
+        <!-- 进项核查 -->
+        <div class="card" onclick="window.open('https://ahongfab.github.io/xzzh-jinxiang/','_blank')">
+            <div class="card-icon">🔍</div>
+            <div class="card-title">进项核查工具</div>
+            <div class="card-desc">销项与进项精确匹配，核查开超情况，红冲发票与费用票自动排除，毛利异常一目了然。</div>
+            <ul class="card-features">
+                <li>销项/进项精确匹配核查</li>
+                <li>红冲发票自动排除</li>
+                <li>费用票智能识别过滤</li>
+                <li>毛利18.5%基准判定</li>
+                <li>样式化Excel导出</li>
+            </ul>
+            <span class="card-link">进入工具 <span class="arrow">→</span></span>
+        </div>
+
+        <!-- 开票建议 -->
+        <div class="card" onclick="window.open('https://ahongfab.github.io/xzzh-kaipiao/','_blank')">
+            <div class="card-icon">💡</div>
+            <div class="card-title">开票建议匹配工具</div>
+            <div class="card-desc">智能匹配开票清单与进项明细，三级可信度分类，逐行对应生成开票建议，替代金额自动反算。</div>
+            <ul class="card-features">
+                <li>三级可信度智能匹配</li>
+                <li>专用进项保护机制</li>
+                <li>替代金额=原金额，单价反算</li>
+                <li>支持新旧两种进项格式</li>
+                <li>进项余额实时追踪</li>
+            </ul>
+            <span class="card-link">进入工具 <span class="arrow">→</span></span>
+        </div>
+
+        <!-- 合同生成 -->
+        <div class="card" onclick="window.open('https://ahongfab.github.io/xzzh-contract/','_blank')">
+            <div class="card-icon">📝</div>
+            <div class="card-title">销售清单及合同生成器</div>
+            <div class="card-desc">上传销售清单自动生成规范销售单及购销合同，甲乙方信息一键填写，支持打印和导出Word。</div>
+            <ul class="card-features">
+                <li>Excel自动解析生成</li>
+                <li>基于民法典合同条款</li>
+                <li>甲乙方信息自动保存</li>
+                <li>金额大写自动转换</li>
+                <li>打印与Word导出</li>
+            </ul>
+            <span class="card-link">进入工具 <span class="arrow">→</span></span>
+        </div>
+    </div>
+</div>
+
+<footer>© 2026 财务工具箱 · 开发者：张洪杰 · 侵权必究</footer>
+
+</body>
+</html>
